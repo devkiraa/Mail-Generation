@@ -50,8 +50,8 @@ def is_valid_email(email):
 
 def main():
     # Your Gmail credentials (make sure to enable less secure apps in your Gmail settings)
-    email_sender = "gmail"
-    email_password = "gmail-pass"
+    email_sender = ""
+    email_password = ""
 
     # Read data from the data.csv file
     with open("Script/data.csv", "r") as csv_file:
