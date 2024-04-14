@@ -1,9 +1,0 @@
-<p>Hello,</p>
-
-<p>This is the first paragraph.</p>
-
-<p>This is the second paragraph.</p>
-
-<p>Here's a link: <a href="https://www.example.com">Example Website</a></p>
-
-<p>Regards,<br>Your Name</p>
