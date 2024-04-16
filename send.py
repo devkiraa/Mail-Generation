@@ -8,6 +8,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 from smtplib import SMTP
 from settings import SENDER_EMAIL, PASSWORD, DISPLAY_NAME
+from tqdm import tqdm
 
 def get_msg(csv_file_path, template):
     with open(csv_file_path, 'r') as file:
@@ -35,6 +36,8 @@ def confirm_attachments(ticket_id):
 
 def send_emails(server: SMTP, template):
     sent_count = 0
+    total_emails = sum(1 for _ in open('data.csv')) - 1  # Count total emails in CSV, excluding header
+    progress_bar = tqdm(total=total_emails, desc="Sending Emails", unit="email")
 
     for receiver, ticket_id, message in get_msg('data.csv', template):
         multipart_msg = MIMEMultipart("alternative")
@@ -60,9 +63,11 @@ def send_emails(server: SMTP, template):
         try:
             server.sendmail(SENDER_EMAIL, receiver, multipart_msg.as_string())
             sent_count += 1
+            progress_bar.update(1)  # Increment progress bar
         except Exception as err:
             print(f'Problem occurred while sending to {receiver}: {err}')
 
+    progress_bar.close()
     print(f"Sent {sent_count} emails")
 
 if __name__ == "__main__":
