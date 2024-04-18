@@ -23,6 +23,9 @@ This program is here to help to sent bulk amount of emails directly
     You can use variables, prefix them with $ sign.
     ```markdown
     Hi $NAME, your mail id is $EMAIL
+
+    NAME,EMAIL,Ticket_Number,Ticket-ID are columns in csv file.
+    these are must.
     ```
 
 6. **Prepare your data in `data.csv` file**. The first line (headers) must contain 'EMAIL' (uppercase) parameter.
