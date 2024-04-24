@@ -17,6 +17,8 @@ Looking forward to seeing you at Savishkaara!
 
 ## Your Ticket Number
 
+EVENT - $EVENT
+
 TICKET NO - $Ticket_Number
 
 TICKET ID - $Ticket-ID
